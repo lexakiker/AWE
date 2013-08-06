@@ -1,0 +1,1 @@
+<a target="_blank" href="{item-link}">{title}</a> - URL: <b>{url}</b> - | <a href="{edit-link}">Изменить страницу</a>, <a href="{delete-link}">Удалить страницу</a><br>

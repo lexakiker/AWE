@@ -1,0 +1,8 @@
+[news]
+[active]<a><li class="active">{page}</li></a>[/active]
+[item]<a href="{page-link}"><li>{page}</li></a>[/item]
+[/news]
+[comments]
+[active]<a><li class="active">{page}</li></a>[/active]
+[item]<a href="{page-link}"><li>{page}</li></a>[/item]
+[/comments]
