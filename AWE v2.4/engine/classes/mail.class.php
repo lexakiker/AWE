@@ -31,25 +31,13 @@ class mail extends functions {
 	
 	protected $headers = '';
 	
-	protected function encode($string, $data_charset, $send_charset, $type) {
-		if($data_charset != $send_charset) { $string = iconv($data_charset, $send_charset, $string); }
-		switch($type) {
-			case 'message': return $string; break;
-			case 'subject': return '=?'.$send_charset.'?B?'.base64_encode($string).'?='; break;
-		}
-	}
-	
 	public function setTo($string) {
 		$this->to = $string;
 	}
 	
-	public function encode($string) {
-		if($this->data_charset != $this->send_charset) { $string = iconv($this->data_charset, $this->send_charset, $string); }
-		return '=?'.$this->send_charset.'?B?'.base64_encode($string).'?=';
-	}
-	
 	public function setSubject($string) {
-		$this->subject = $this->encode($string);
+	if($this->data_charset != $this->send_charset) { $string = iconv($this->data_charset, $this->send_charset, $string); }
+		$this->subject = '=?'.$this->send_charset.'?B?'.base64_encode($string).'?=';
 	}
 	
 	public function setMessage($message) {
