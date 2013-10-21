@@ -19,9 +19,11 @@
 
 if(!defined('INC_CHECK')) { die('Scat!'); }
 
-define('ENGINE_PATH', ''); // папка с движком, в конце обязательно должен быть слеш | пример: "path/to/site/"
+define('ENGINE_PATH', ''); // папка с движком, в конце
+// обязательно должен быть слеш | пример: "path/to/site/",
+// то-же самое проделайте в файле .htaccess
 
-### Все что дальше - не трогать! ###
+/// Все что дальше - не трогать! ///
 
 define('CAPTCHA_LINK', '/'.ENGINE_PATH.'engine/sys-modules/captcha.php?'.session_name().'='.session_id());
 define('ROOT', str_replace('\\','/',dirname(__FILE__)).'/');
