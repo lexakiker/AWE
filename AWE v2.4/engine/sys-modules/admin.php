@@ -233,7 +233,7 @@ if($user->checkLogged() && $user->userAdmin() || $user->getPermission('allow-adm
 						if(empty($_POST['title']) or empty($_POST['short-story']) or empty($_POST['full-story'])) {
 							$error = LANG('ALL_FIELDS_REQUIRED');
 						} else {
-							$database->query('UPDATE `'.DB_PREFIX.'_news` SET `title`=\''.$_POST['title'].'\', `short-story`=\''.$admin->strip($_POST['short-story']).'\', `fullstory`=\''.$admin->strip($_POST['full-story']).'\', `x-image`=\''.$_POST['x-image'].'\' WHERE `id`=\''.$id.'\'');
+							$database->query('UPDATE `'.DB_PREFIX.'_news` SET `title`=\''.$_POST['title'].'\', `short-story`=\''.$admin->strip($_POST['short-story']).'\', `full-story`=\''.$admin->strip($_POST['full-story']).'\', `x-image`=\''.$_POST['x-image'].'\' WHERE `id`=\''.$id.'\'');
 							$error = str_replace('{id}', $id, LANG('NEWS_WERE_CHANGED'));
 						}
 					}
