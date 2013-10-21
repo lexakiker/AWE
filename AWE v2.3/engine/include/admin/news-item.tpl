@@ -1,1 +1,0 @@
-<a target="_blank" href="{item-link}">{title}</a> - Дата: <b>{date}</b> - Автор: <a target="_blank" href="{author-link}">{author}</a> | <a href="{edit-link}">Изменить новость</a>, <a href="{delete-link}">Удалить новость</a>, <a href="{nullify-link}">Обнулить просмотры</a><br>
