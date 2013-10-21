@@ -43,9 +43,13 @@ class mail extends functions {
 		$this->to = $string;
 	}
 	
-	public function setSubject($string) {
+	public function encode($string) {
 		if($this->data_charset != $this->send_charset) { $string = iconv($this->data_charset, $this->send_charset, $string); }
-		$this->subject = '=?'.$this->data_charset.'?B?'.base64_encode($string).'?=';
+		return '=?'.$this->send_charset.'?B?'.base64_encode($string).'?=';
+	}
+	
+	public function setSubject($string) {
+		$this->subject = $this->encode($string);
 	}
 	
 	public function setMessage($message) {
@@ -59,8 +63,10 @@ class mail extends functions {
 	
 	public function send() {
 		$this->headers .= 'From: '.str_replace('{host}', $_SERVER['HTTP_HOST'], $this->from)."\r\n";
+		
 		$this->headers .= 'Content-type: text/html; charset='.$this->send_charset."\r\n";
-		$this->headers .= 'X-Mailer: PHP/'.phpversion();
+		$this->headers .= 'X-Mailer: PHP/'.phpversion()."\r\n";
+		$this->headers .= 'Mime-Version: 1.0';
 		mail($this->to, $this->subject, $this->message, $this->headers);
 	}
 	

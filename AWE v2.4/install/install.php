@@ -237,11 +237,11 @@ switch($step) {
 	
 	case 3:
 		$templates->load('step3.tpl', 'step3');
-		$all['p-content'] = $templates->display('step3');
 		$templates->assign('str', '{name}', isset($_POST['name'])?strip($_POST['name']):'', 'step3');
 		$templates->assign('str', '{birth}', isset($_POST['birth'])?strip($_POST['birth']):'', 'step3');
 		$templates->assign('str', '{username}', isset($_POST['username'])?strip($_POST['username']):'', 'step3');
 		$templates->assign('str', '{admin-mail}', isset($_POST['admin-mail'])?strip($_POST['admin-mail']):'', 'step3');
+		$all['p-content'] = $templates->display('step3');
 		$all['p-title'] = 'Шаг 3 - Аккаунт администратора';
 	break;
 	
